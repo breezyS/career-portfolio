@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "./util/theme-provider";
 
 import "./App.css";
 import Introduction from "./pages/Introduction";
@@ -7,11 +7,16 @@ import Introduction from "./pages/Introduction";
 function App() {
   return (
     <>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-        <Routes>
-          <Route path="/" element={<Introduction />} />
-        </Routes>
-      </ThemeProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+              <Introduction />
+            </ThemeProvider>
+          }
+        />
+      </Routes>
     </>
   );
 }
